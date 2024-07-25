@@ -31,6 +31,7 @@ project {
     buildType(PythonUnitTests)
     buildType(TestComposite)
     buildType(Deployment)
+    buildType(Hook)
 }
 
 object Deployment : BuildType({
@@ -51,6 +52,16 @@ object Deployment : BuildType({
         }
         snapshot(TestComposite) {
         }
+    }
+})
+
+object Hook : BuildType({
+    name = "Hook"
+
+    type = BuildTypeSettings.Type.COMPOSITE
+
+    vcs {
+        showDependenciesChanges = true
     }
 })
 
